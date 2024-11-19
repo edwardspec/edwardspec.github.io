@@ -19,23 +19,23 @@ document.addEventListener( 'DOMContentLoaded', function () {
 		biomeLikeness = parseInt( document.getElementById( 'biomeLikeness' ).value );
 		numTicks = parseInt( document.getElementById( 'numTicks' ).value );
 
-		let result = 'Baseline Resistance(%) = ' + baselineResistance;
+		let result = '<b>Baseline Resistance(%)</b> = ' + baselineResistance;
 
 		let totalBaseResistance = baselineResistance * biomeLikeness;
-		result += '<br>Total Base Resistance(%) = baselineResistance*biomeLikeness = ' + totalBaseResistance;
+		result += '<br><b>Total Base Resistance(%)</b> = <code>baselineResistance * biomeLikeness</code> = ' + totalBaseResistance;
 
 		let droneCountMaxBonus = droneCount / 100;
-		result += '<br>Drone Count Maximum Bonus(%) = droneCount/100 = ' + droneCountMaxBonus;
+		result += '<br><b>Drone Count Maximum Bonus(%)</b> = <code>droneCount / 100</code> = ' + droneCountMaxBonus;
 
 		let beeAndFrameResists = beeMiteResistance + frameResistance;
-		result += '<br>Bee&Frame Resists(%) = beeMiteResistance+frameResistance = ' + beeAndFrameResists;
+		result += '<br><b>Bee&Frame Resists(%)</b> = <code>beeMiteResistance + frameResistance</code> = ' + beeAndFrameResists;
 
 		totalResistance = totalBaseResistance + droneCountMaxBonus + beeAndFrameResists;
-		result += '<br>Total Resistance(%) = totalBaseResistance+droneCountMaxBonus+beeAndFrameResists=' + totalResistance;
+		result += '<br><b>Total Resistance(%)</b> = <code>totalBaseResistance + droneCountMaxBonus + beeAndFrameResists</code> = ' + totalResistance;
 
 		result += '<br><br>Simulated events:'
-		result += '<br>On every tick, there is a ' + totalResistance + '% chance for miteCount to be decreased by beeMiteResistance=' + beeMiteResistance;
-		result += '<br>On every tick, there is a ' + round( 100.0 - totalResistance ) + '% chance for miteCount to be increased by max(1, 0.05*miteCount)';
+		result += '<br>On every tick, there is a <span style="color:green">' + totalResistance + '%</span> chance for miteCount to be decreased by beeMiteResistance=' + beeMiteResistance;
+		result += '<br>On every tick, there is a <span style="color:red">' + round( 100.0 - totalResistance ) + '%</span> chance for miteCount to be increased by <code>max(1, 0.05*miteCount)</code>';
 		resultArea.innerHTML = result;
 	}
 
