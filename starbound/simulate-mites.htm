@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Mite growth simulator (new formula)</title>
+ <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js"></script>
+ <script src="./simulate-mites.js"></script>
+</head>
+<body>
+ <form>
+	<fieldset>
+		<legend>Starting conditions</legend>
+		<label>
+		Drone count (at start):<br>
+		<input id="droneCount" type="number" value="1000" min="1" max="2000">
+		</label><br>
+		<label>
+		Mite count (at start):<br>
+		<input id="miteCount" type="number" value="0" min="0" max="1000">
+		</label><br>
+	</fieldset><br>
+	<fieldset>
+		<legend>Bees and frames</legend>
+		<label>
+		Bee mite resistance (number between 0 and 6.475):<br>
+		<input id="beeMiteResistance" type="number" value="0.4" min="0" max="6.475" step="any">
+		</label><br>
+
+		<label>
+		Frame resistance:<br>
+		<input id="frameResistance" type="number" value="0" min="0" max="6.475" step="any">
+		</label><br>
+
+		<label>
+		Biome likeness (0=Hated, 1=Disliked, 2=Normal, 3=Loved):<br>
+		<input id="biomeLikeness" type="number" value="2" min="0" max="3">
+		</label><br>
+	</fieldset><br>
+	<fieldset>
+		<legend>Simulation</legend>
+		<label>
+		How many ticks to simulate:<br>
+		<input id="numTicks" type="number" value="200" min="1" max="10000">
+		</label><br><br>
+
+		<input type="submit" value="Run simulation!" onclick="simulateMites(); return false">
+	</fieldset>
+
+	<fieldset>
+		<legend>Result area</legend>
+		<canvas id="resultChart" style="width:100%; max-width: 800px;max-height:400px;"></canvas>
+		<div id="result"></div>
+	</fieldset>
+
+ </form>
+
+</body>
+</html>
