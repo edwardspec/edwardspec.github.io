@@ -39,10 +39,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
 		resultArea.innerHTML = result;
 	}
 
-	recalculate();
-	document.forms[0].addEventListener( 'change', recalculate );
-
-	document.getElementById( 'runSimulation' ).onclick = function () {
+	function runSimulation() {
 		recalculate();
 
 		// Make the graph of mite growth over time.
@@ -110,4 +107,10 @@ document.addEventListener( 'DOMContentLoaded', function () {
 			}
 		} );
 	};
+
+	recalculate();
+	document.forms[0].addEventListener( 'change', recalculate );
+
+	runSimulation();
+	document.getElementById( 'runSimulation' ).onclick = runSimulation;
 } );
